@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
+
 int sum();
 
 
@@ -14,7 +15,7 @@ int main()
 	printf("                          2. Subtract two numbers.\n");
 	printf("                          3. Multiply two numbres.\n\n");
 	printf("           The result will be in binary.\n");
-	printf("           Please entrer the numbers you want to operate:\n", );
+	printf("           Please entrer the numbers you want to operate:\n");
 	printf("           Number 1: ");
 	scanf("%d%*c",&i_i_num1);
 	printf("           Number 2: ");
@@ -32,8 +33,8 @@ int main()
 
 switch (i_i_menu_rta) {
 	case 1: sum_return=sum();
-					strcpy(rta_bin[64],dec_bin(sum_return));
-					printf("           Your number is \n");
+					dec_bin(sum_return);
+
 	break;
 	case 2: sub_return=Subtract();
 					printf("           Your number is %d\n",sub_return);
@@ -46,10 +47,7 @@ switch (i_i_menu_rta) {
 }
 
 
-int sum() {
-					int num1,num2;
-					printf("           Please enter the numbers you want to sum: \n");
-
+int sum(int num1, int num2) {
 					return num1+num2;
 }
 
@@ -76,17 +74,17 @@ int multiply(){
 
 }
 
-void dec_bin(int a){
-	char num_bin[64];
-	int cont=0,div=a;
+void dec_bin(int n){
+	int remainder;
+	int cont=n;
+ long binary = 0, i = 1;
 
-	while (div!=1) {
-			if (div%2==1) {
-				num_bin[cont]=1;
-			}else{num_bin[cont]=0;}
-			div=div/2;
-			cont++;
-	}
-	printf("your number is: %s\n",&num_bin);
+    while(cont != 1) {
+        remainder = cont%2;
+        cont = cont/2;
+        binary= binary + (remainder*i);
+        i = i*10;
+    }
+	  printf("           Your answer is: %ld", binary);
 	return 0;
 }
