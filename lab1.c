@@ -6,7 +6,7 @@ int sum();
 
 int main()
 {
-	int sum_return, sub_return, mult_return, i_i_menu_rta;
+	int sum_return, sub_return, mult_return, i_i_menu_rta, i_i_num1, i_i_num2;
 	char rta_bin[64];
 
 	printf("\n         Hello, I am a kawaii calculator, I can do the next tasks: \n\n");
@@ -14,6 +14,11 @@ int main()
 	printf("                          2. Subtract two numbers.\n");
 	printf("                          3. Multiply two numbres.\n\n");
 	printf("           The result will be in binary.\n");
+	printf("           Please entrer the numbers you want to operate:\n", );
+	printf("           Number 1: ");
+	scanf("%d%*c",&i_i_num1);
+	printf("           Number 2: ");
+	scanf("%d%*c",&i_i_num2);
 	printf("           Which task do you want me to do? (1)(2)(3)\n");
 	printf("           ");
 	scanf("%d%*c",&i_i_menu_rta);
@@ -40,19 +45,11 @@ switch (i_i_menu_rta) {
 
 }
 
-int solicitar_num(){
-
-
-	
-}
 
 int sum() {
 					int num1,num2;
 					printf("           Please enter the numbers you want to sum: \n");
-					printf("           Number 1: ");
-					scanf("%d%*c",&num1);
-					printf("           Number 2: ");
-					scanf("%d%*c",&num2);
+
 					return num1+num2;
 }
 
