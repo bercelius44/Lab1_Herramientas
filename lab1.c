@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <string.h>
 
+int sum();
+
+
 int main()
 {
 	int sum_return, sub_return, mult_return, i_i_menu_rta;
@@ -37,6 +40,12 @@ switch (i_i_menu_rta) {
 
 }
 
+int solicitar_num(){
+
+
+	
+}
+
 int sum() {
 					int num1,num2;
 					printf("           Please enter the numbers you want to sum: \n");
@@ -70,7 +79,7 @@ int multiply(){
 
 }
 
-const char * dec_bin(int a){
+void dec_bin(int a){
 	char num_bin[64];
 	int cont=0,div=a;
 
@@ -81,6 +90,6 @@ const char * dec_bin(int a){
 			div=div/2;
 			cont++;
 	}
-	return num_bin;
+	printf("your number is: %s\n",&num_bin);
+	return 0;
 }
-
