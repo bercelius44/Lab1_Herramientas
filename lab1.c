@@ -32,7 +32,7 @@ int main()
 	}
 
 switch (i_i_menu_rta) {
-	case 1: sum_return=sum();
+	case 1: sum_return=sum(i_i_num1,i_i_num2);
 					dec_bin(sum_return);
 
 	break;
@@ -85,6 +85,6 @@ void dec_bin(int n){
         binary= binary + (remainder*i);
         i = i*10;
     }
-	  printf("           Your answer is: %ld", binary);
+	  printf("           Your answer is: %ld\n", binary);
 	return 0;
 }
