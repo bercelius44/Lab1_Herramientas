@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <math.h>
 
 
 int sum();
@@ -15,14 +16,15 @@ int main()
 	printf("                          2. Subtract two numbers.\n");
 	printf("                          3. Multiply two numbres.\n\n");
 	printf("           The result will be in binary.\n");
-	printf("           Please entrer the numbers you want to operate:\n");
+	printf("           Please enter the numbers you want to operate:\n");
+	printf("           Which task do you want me to do? (1)(2)(3)\n");
+	printf("           ");
+	scanf("%d%*c",&i_i_menu_rta);
 	printf("           Number 1: ");
 	scanf("%d%*c",&i_i_num1);
 	printf("           Number 2: ");
 	scanf("%d%*c",&i_i_num2);
-	printf("           Which task do you want me to do? (1)(2)(3)\n");
-	printf("           ");
-	scanf("%d%*c",&i_i_menu_rta);
+
 
 	if (i_i_menu_rta!=1 && i_i_menu_rta!=2 && i_i_menu_rta!=3) {
 
@@ -36,8 +38,8 @@ switch (i_i_menu_rta) {
 					dec_bin(sum_return);
 
 	break;
-	case 2: sub_return=Subtract();
-					printf("           Your number is %d\n",sub_return);
+	case 2: sub_return=Subtract(i_i_num1,i_i_num2);
+					dec_bin(sub_return);
 	break;
 	case 3: mult_return=multiply();
 					printf("           Your number is %d\n",mult_return);
@@ -51,14 +53,7 @@ int sum(int num1, int num2) {
 					return num1+num2;
 }
 
-int Subtract(){
-
-					int num1,num2;
-					printf("           Please enter the numbers you want to Subtract (number1-number2): \n");
-					printf("           Number 1: ");
-					scanf("%d%*c",&num1);
-					printf("           Number 2: ");
-					scanf("%d%*c",&num2);
+int Subtract(int num1, int num2){
 					return num1-num2;
 }
 
@@ -75,16 +70,16 @@ int multiply(){
 }
 
 void dec_bin(int n){
-	int remainder;
-	int cont=n;
- long binary = 0, i = 1;
+	long long binaryNumber = 0;
+	int remainder, i = 1, step = 1;
 
-    while(cont != 1) {
-        remainder = cont%2;
-        cont = cont/2;
-        binary= binary + (remainder*i);
-        i = i*10;
-    }
-	  printf("           Your answer is: %ld\n", binary);
+	while (n!=0)
+	{
+			remainder = n%2;
+			n /= 2;
+			binaryNumber += remainder*i;
+			i *= 10;
+	}
+	  printf("           Your answer is: %ld\n", binaryNumber);
 	return 0;
 }
