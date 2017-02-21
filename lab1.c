@@ -2,6 +2,10 @@
 #include <string.h>
 #include <math.h>
 
+
+#define BINARY 'b'
+#define SUMA 1
+
 int sum(int num1, int num2);
 int Subtract(int num1, int num2);
 int multiply(int num1, int num2);
@@ -11,7 +15,7 @@ int bin_dec(long long n);
 int main()
 {
 	int sum_return, sub_return, mult_return, i_i_menu_rta, i_i_num1, i_i_num2;
-	char rta_bin[64], i_c_menu_rta, i_c_menu_rta1='y';
+	char i_c_menu_rta, i_c_menu_rta1='y';
 	printf("--------------------------------------------------------------------------------\n");
 	printf("--------------------------------------------------------------------------------");
 	printf("\n         Hello, I am a kawaii calculator, I can do the next tasks: \n\n");
@@ -31,7 +35,7 @@ int main()
 		printf("           What kind of number are you gonna enter? (b (binary) / d (decimal))\n");
 		printf("           ");
 		scanf("%c%*c",&i_c_menu_rta);
-		if (i_c_menu_rta!='b' && i_c_menu_rta!='d') {
+		if (i_c_menu_rta!=BINARY && i_c_menu_rta!='d') {
 			printf("           Your choose it's invalid, please select other one: (b (binary) / d (decimal))\n" );
 			printf("           ");
 			scanf("%c%*c",&i_c_menu_rta);
@@ -43,7 +47,7 @@ int main()
 			scanf("%lld%*c",&i_l_num1);
 			i_i_num1=bin_dec(i_l_num1);
 			printf("           Number 2: ");
-			scanf("%lld%*c",&i_l_num2);
+			scanxf("%lld%*c",&i_l_num2);
 			i_i_num2=bin_dec(i_l_num2);
 		}else{
 			printf("           Please enter the numbers you want to operate:\n");
@@ -54,7 +58,7 @@ int main()
 		}
 
 		switch (i_i_menu_rta) {
-			case 1: sum_return=sum(i_i_num1,i_i_num2);
+			case SUMA: sum_return=sum(i_i_num1,i_i_num2);
 							dec_bin(sum_return);
 			break;
 			case 2: sub_return=Subtract(i_i_num1,i_i_num2);
@@ -94,7 +98,7 @@ int multiply(int num1, int num2){
 
 void dec_bin(int n){
 
-	long long binaryNumber = 0;
+	unsigned long long binaryNumber = 0;
 	int remainder, i = 1, step = 1;
 
 	while (n!=0)
@@ -102,6 +106,7 @@ void dec_bin(int n){
 			remainder = n%2;
 			n /= 2;
 			binaryNumber += remainder*i;
+			//printf("%d\r",remainder );
 			i *= 10;
 	}
 	  printf("           Your answer is: %lld\n", binaryNumber);
