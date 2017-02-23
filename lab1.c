@@ -2,10 +2,6 @@
 #include <string.h>
 #include <math.h>
 
-
-#define BINARY 'b'
-#define SUMA 1
-
 int sum(int num1, int num2);
 int Subtract(int num1, int num2);
 int multiply(int num1, int num2);
@@ -35,7 +31,7 @@ int main()
 		printf("           What kind of number are you gonna enter? (b (binary) / d (decimal))\n");
 		printf("           ");
 		scanf("%c%*c",&i_c_menu_rta);
-		if (i_c_menu_rta!=BINARY && i_c_menu_rta!='d') {
+		if (i_c_menu_rta!='b' && i_c_menu_rta!='d') {
 			printf("           Your choose it's invalid, please select other one: (b (binary) / d (decimal))\n" );
 			printf("           ");
 			scanf("%c%*c",&i_c_menu_rta);
@@ -47,7 +43,7 @@ int main()
 			scanf("%lld%*c",&i_l_num1);
 			i_i_num1=bin_dec(i_l_num1);
 			printf("           Number 2: ");
-			scanxf("%lld%*c",&i_l_num2);
+			scanf("%lld%*c",&i_l_num2);
 			i_i_num2=bin_dec(i_l_num2);
 		}else{
 			printf("           Please enter the numbers you want to operate:\n");
@@ -58,7 +54,7 @@ int main()
 		}
 
 		switch (i_i_menu_rta) {
-			case SUMA: sum_return=sum(i_i_num1,i_i_num2);
+			case 1: sum_return=sum(i_i_num1,i_i_num2);
 							dec_bin(sum_return);
 			break;
 			case 2: sub_return=Subtract(i_i_num1,i_i_num2);
